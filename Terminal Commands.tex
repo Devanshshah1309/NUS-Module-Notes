@@ -1,0 +1,72 @@
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}	% Para caracteres en español
+\usepackage{amsmath,amsthm,amsfonts,amssymb,amscd}
+\usepackage{multirow,booktabs}
+\usepackage[table]{xcolor}
+\usepackage{xcolor}
+\usepackage{fullpage}
+\usepackage{lastpage}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{mathrsfs}
+\usepackage{wrapfig}
+\usepackage{setspace}
+\usepackage{calc}
+\usepackage{multicol}
+\usepackage{cancel}
+\usepackage[retainorgcmds]{IEEEtrantools}
+\usepackage[margin=3cm]{geometry}
+\usepackage{amsmath}
+\newlength{\tabcont}
+\setlength{\parindent}{0.0in}
+\setlength{\parskip}{0.05in}
+\usepackage{empheq}
+\usepackage{framed}
+\usepackage[T1]{fontenc}
+\usepackage{tgbonum}
+\usepackage[most]{tcolorbox}
+\usepackage{xcolor}
+\colorlet{shadecolor}{orange!15}
+\parindent 0in
+\parskip 12pt
+\geometry{margin=1in, headsep=0.25in}
+\theoremstyle{definition}
+\newtheorem{defn}{Definition}
+\newtheorem{reg}{Rule}
+\newtheorem{exer}{Exercise}
+\newtheorem{note}{Note}
+\begin{document}
+\renewcommand{\labelenumii}{\arabic{enumi}.\arabic{enumii}}
+\renewcommand{\labelenumiii}{\arabic{enumi}.\arabic{enumii}.\arabic{enumiii}}
+\renewcommand{\labelenumiv}{\arabic{enumi}.\arabic{enumii}.\arabic{enumiii}.\arabic{enumiv}}
+\setcounter{section}{0}
+\title{Chapter 9 Review Notes}
+\newcommand{\code}{\fontfamily{pcr}\selectfont}
+\thispagestyle{empty}
+
+\begin{center}
+{\LARGE \bf Basic Terminal Commands}\\
+Prepared by Devansh Shah (Last updated on 23 Dec 2021)
+\end{center}
+\begin{enumerate}
+    \item {\code ls} - list all your files in the current directory
+    \item {\code pwd} - print working directory
+    \item {\code cd} - change directory. Example: {\code cd Documents} (the directory must be a folder in the working directory)
+    \item {\code ..} - refers to parent directory
+    \item {\code cd ..} - go back to parent directory
+    \item {\code clear} - clears terminal
+    \item {\code control+c} - kills any command running
+    \item {\code touch [filename]} - creates a new file
+    \item {\code vim [filename]} - opens file in vim for editting purposes
+    \item {\code history} - used to see history of commands executed in terminal
+    \item {\code open [filename]} - used to open file
+    \item {\code rm [filename]} - remove file
+    \item {\code mkdir [folder]} - create a new folder/directory 
+    \item {\code rmdir [folder]} -  remove folder/directory
+    \item {\code rm -r [folder]} - alternative way to remove folder (where -r refers to recursive, as it recursively deletes all files in the folder
+    \item {\code cat [filename]} - prints contents of file
+    \item {\code mv [file location] [new location]} - moves file to new location
+    \item {\code [click on tab]} - auto-completes filename or directory name (if there is no ambiguity)
+    \item {\code exit} - exits terminal
+\end{enumerate}
+\end{document}
