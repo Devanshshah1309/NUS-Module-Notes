@@ -1,0 +1,129 @@
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}	% Para caracteres en español
+\usepackage{amsmath,amsthm,amsfonts,amssymb,amscd}
+\usepackage{multirow,booktabs}
+\usepackage[table]{xcolor}
+\usepackage{xcolor}
+\usepackage{fullpage}
+\usepackage{lastpage}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{mathrsfs}
+\usepackage{wrapfig}
+\usepackage{setspace}
+\usepackage{calc}
+\usepackage{multicol}
+\usepackage{cancel}
+\usepackage[retainorgcmds]{IEEEtrantools}
+\usepackage[margin=3cm]{geometry}
+\usepackage{amsmath}
+\newlength{\tabcont}
+\setlength{\parindent}{0.0in}
+\setlength{\parskip}{0.05in}
+\usepackage{empheq}
+\usepackage{framed}
+\usepackage[T1]{fontenc}
+\usepackage{tgbonum}
+\usepackage[most]{tcolorbox}
+\usepackage{xcolor}
+\colorlet{shadecolor}{orange!15}
+\parindent 0in
+\parskip 12pt
+\geometry{margin=1in, headsep=0.25in}
+\theoremstyle{definition}
+\newtheorem{defn}{Definition}
+\newtheorem{reg}{Rule}
+\newtheorem{exer}{Exercise}
+\newtheorem{note}{Note}
+\begin{document}
+\renewcommand{\labelenumii}{\arabic{enumi}.\arabic{enumii}}
+\renewcommand{\labelenumiii}{\arabic{enumi}.\arabic{enumii}.\arabic{enumiii}}
+\renewcommand{\labelenumiv}{\arabic{enumi}.\arabic{enumii}.\arabic{enumiii}.\arabic{enumiv}}
+\setcounter{section}{0}
+\newcommand{\code}{\fontfamily{pcr}\selectfont}
+\thispagestyle{empty}
+\newcommand{\n}{\\ \hfill \\}
+\begin{center}
+{\LARGE \bf Vim Notes} \n
+Prepared by Devansh Shah (Last updated on 28 Dec 2021)
+\end{center}
+\section{Common Commands}
+\begin{enumerate}
+    \item {\bf Opening vim} \n
+    {\code vim $<file-name>$}
+    
+    \item {\bf Exiting vim} \n
+    {\code :q} to exit (q stands for quit)\n 
+    {\code :wq} to save and quit \n 
+    {\code :q!} to quit without saving
+    
+    \item {\bf Saving a file} \n 
+    {\code :w}
+    
+    \item {\bf Moving cursor} \n 
+    {\code j} moves cursor down \n 
+    {\code k} moves cursor up \n 
+    {\code l} moves cursor right \n 
+    {\code h} moves cursor left \n
+    {\code i} start typing (enter insert mode) \n
+    {\code $<click-escape>$} stop typing (go back to command mode) \n 
+    {\code G} moves cursor to the bottom of the file \n 
+    {\code gg} moves cursor to the top of the file \n 
+    {\code $\{$ } moves cursor up one block of code \n 
+    {\code $\}$ } moves cursor down one block of code \n 
+    {\code $<number> <letter>$} applies the command $<number>$ many times. For example, {\code 20j} will move the cursor down 20 lines \n
+    {\code w} moves the cursor to the next word \n 
+    {\code b} moves the cursor back one word \n 
+    {\code :$<number>$} moves the cursor to line $<number$ \n 
+    {\code 0} moves cursor to beginning of line \n 
+    {\code \$} moves to end of line \n 
+    {\code t$<character>$} moves cursor just before $<character>$ is encountered on the line \n 
+    {\code f$<character>$} moves cursor to $<character>$ on the line \n 
+    {\code \%} moves cursor to beginning/end of block/parentheses \n
+    {\code *} moves cursor to next occurrence of the current word \n
+    {\code /$<characters>$} brings cursor to first instance of $<characters>$ and then use {\code n} to move to next occurrence. \n 
+    
+    \item {\bf Clipboard commands} \n 
+    {\code u} undo command \n 
+    {\code $<control> + R$} redo command \n 
+    {\code yy} copy line of code \n 
+    {\code p} paste (pastes below) \n 
+    {\code P} paste (pastes above)
+    \item {\bf Selecting multiple lines of code} \n 
+    {\code V} enter visual mode (and then use navigation commands to select lines of code) \n 
+    {\code d} delete block of code and copy to clipboard \n
+    {\code y} copy selected code \n 
+    {\code v} to enter visual mode to select code (not entire lines but just specific parts) \n
+    {\code control+v} seelcts block of code
+    
+    \item {\bf Inserting} \n 
+    {\code o} enters insert mode and inserts new line below \n 
+    {\code O} enters insert mode and inserts new line above \n 
+    {\code a} enters insert mode and moves cursor to the right by one character \n 
+    {\code A} enters insert mode and moves cursor to the end of the line \n 
+    
+    \item {\bf Changing and deleting code} \n 
+    {\code cw} change current word \n 
+    {\code C} deletes rest of line and enter insert mode \n
+    {\code ct $<character>$} deletes rest of line till first occurrence of $<character>$ and enters insert mode \n 
+    {\code I} enters insrt mode at the beginning of the line
+    {\code dd} delete line of code \n 
+    {\code x} delete a single character
+    {\code dt $<character>$} deletes rest of line till first occurrence of $<character>$ \n 
+    {\code d$<navigation-command>$} deletes code based on navigation command. For example, {\code d$\}$ } will delete a block of code \n 
+    {\code dw} delete current word \n 
+    {\code D} delete rest of the current line \n
+    {\code r} replace single letter \n
+    {\code R} replace multiple letters \n 
+    
+    
+    \item {\bf Miscellaneous} \n 
+    {\code zz} centers the page based on cursor location \n {\code $\sim$} swaps case of current letter \n 
+    {\code .} does the previous command again \n 
+    {\code q $<character>$} (macros) does the previous commands again when saved to a particular character (press q to start macros and then the letter to which the macros will be saved. Then when you're done with inserting stuff, go back to command mode by pressing esc and then, press @$<character>$ to run macros.
+    {\code }
+    
+    
+    
+\end{enumerate}
+\end{document}
