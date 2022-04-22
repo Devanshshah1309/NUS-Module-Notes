@@ -1,0 +1,301 @@
+\chapter{Basic Concepts on Probability}
+\section{Introduction}
+\begin{definition}[Observation]
+Any recording of information whether it is numerical or categorical.
+\end{definition}
+\begin{definition}[Experiment]
+Any procedure that generates observations.
+\end{definition}
+
+\begin{definition}[Sample Space]
+The set of all possible outcomes of an experiment. It is denoted by the symbol S.
+\end{definition}
+
+\begin{definition}[Sample Points]
+Every outcome in a sample space is called an element of the sample space or simply a sample point.
+\end{definition}
+
+\begin{definition}[Event]
+An event is a subset of a sample space.
+\end{definition}
+
+\begin{definition}[Simple Event]
+An event is said to be simple if it consists of exactly one sample point
+\end{definition}
+
+\begin{definition}[Compound Event]
+An event it said to be compound if it consists of more than one sample point
+\end{definition}
+
+\begin{note}\end{note}
+The sample space is itself an event and is usually called a sure event.
+
+
+\begin{note}\end{note}
+A subset of S that contains no elements at all is the empty set, denoted by $\phi$, and is usually called the null event.
+
+
+\section{Operations with Events}
+
+\begin{definition}[Union]
+The union of two events A and B, denoted by A $\cup$ B, is the event containing all the elements that belong to A or B or to both. Mathematically, $$A \cup B = \{x: x \in A \ or \  x \in B \}$$
+\end{definition}
+
+\begin{definition}[Intersection]
+The intersection of two events A and B, denoted by A $\cap$ B, is the event containing all elements that are common to A and B. Mathematically, $$A \cap B = \{x: x \in A \ and \ x \in B \} $$
+\end{definition}
+
+\begin{definition}[Complement]
+The complement of event A with respect to the sample space S, denoted by $A^{'}$ or $A^{C}$, is the set of all elements of S that are not in A. Mathematically, 
+$$
+A^{'} = \{x : x \in S \ and \ x \notin A \}
+$$
+\end{definition}
+
+\begin{definition}[Mutually Exclusive Events]
+Events A and B are mutually exclusive or mutually disjoint if $A \cap B = \phi$, i.e, if A and B have no elements in common
+\end{definition}
+
+\thm{Some basic properties of operations events are as follows:
+\begin{enumerate}
+    \item $A \cap A^{'} = \phi$
+    \item $A \cap \phi = \phi$
+    \item $A \cup A^{'} = S$
+    \item $(A^{'})^{'} = A$
+    \item $(A \cup B)^{'} = A^{'} \cap B^{'}$ (De Morgan's Law)
+    \item $(A \cap B)^{'} = A^{'} \cup B^{'}$ (De Morgan's Law)
+    \item $A \cup (B \cap C) = (A \cup B) \cap (A \cup C)$ (Distributive Law)
+    \item $A \cap (B \cup C) = (A \cap B) \cup (A \cap C)$ (Distributive Law)
+    \item $A \cup B = A \cup (B \cap A^{'})$
+    \item $A = (A \cap B) \cup (A \cap B^{'})$
+    \item $A \cup B = (A \cap B^{'}) \cup (A \cap B) \cup (A^{'} \cap B)$
+\end{enumerate}}
+The last property is useful to express a union of two sets as the union of three disjoint events.
+
+\begin{note}[De Morgan's Laws]\end{note}
+For n events $A_1, A_2, ..., A_n$, 
+$$
+(A_1 \cup A_2 \cup \dots \cup A_n)^{'} = A^{'}_1 \cap A^{'}_2 \cap \dots \cap A^{'}_n
+$$
+$$
+(A_1 \cap A_2 \cap ... \cap A_n)^{'} = A^{'}_1 \cup A^{'}_2 \cup \dots \cup  A^{'}_n
+$$
+
+
+\begin{definition}[Contained]
+If all the elements in event A are also in event B, then event A is contained in event B, denoted by $A \subset B$.
+\end{definition}
+
+\begin{note}\end{note}
+$A = B \iff A \subset B \ and \ B \subset A$
+
+
+\section{Counting Methods}
+
+\thm{Multiplication Principle \\ \hfill \\ 
+If an operation can be performed in $n_1$ ways and if for each of these ways, a second operation can be performed in $n_2$ ways, and for each of the first two ways, a third operation can be performed in $n_3$ ways, and so forth, then the sequence of k operations can be performed in $n_1 n_2 n_3 \dots n_k$ ways}
+
+\thm{Addition Principle \\ \hfill \\
+If there are k procedures and the $i^{th}$ procedure may be performed in $n_i$ ways where i = 1,2,...,k, then the number of ways in which we may perform procedure 1 or procedure 2 or ... or procedure k is given by $n_1 + n_2 + ... + n_k$ assuming that no two procedures may be performed together.}
+
+\begin{definition}[Permutation]
+An arrangement of $r$ objects from a set of $n$ objects, where r $\leq$ n in which order matters. It is denoted by $\perm{n}{r}$.
+\end{definition}
+
+\begin{note}\end{note}
+The number of permutations of n distinct objects taken r at a time is given by $$\perm{n}{r} = \dfrac{n!}{(n-r)!}$$
+In particular, one can arrange n distinct objects in n! ways.
+
+
+\begin{note}\end{note}
+If there are $n_1$ objects of the first kind, $n_2$ objects of the second kind, ..., $n_k$ objects of the $k^{th}$ kind, then the number of permutations of all these objects is given by 
+$$
+\perm{n}{n_1, n_2, \dots, n_k} = \dfrac{n!}{n_1 ! n_2 ! ... n_k !}
+$$
+
+
+\begin{note}[Circular Permutations]\end{note}
+The number of permutations of $n$ distinct objects arranged in a circle is $(n-1)!$. This is because the rotation of the circle does not affect the relative positions of the objects and since there are $n$ possible rotationally symmetric states of the circle, the total permutations is $\dfrac{n!}{n}$, which is equal to $(n-1)!$.
+
+
+\begin{definition}[Combination]
+A selection of r objects from a set of n objects, where r $\leq$ n, in which the order of objects does not matter. It is denoted by $_nC_r$ or  $\comb{n}{r}$ or $\dbinom{n}{r}$.
+\end{definition}
+
+\begin{note}\end{note}
+The number of combinations of $n$ distinct objects taken $r$ at a time is given by 
+$$
+\dbinom{n}{r} = \dfrac{n!}{(n-r)!\  r!}
+$$
+
+
+\begin{note}[Multiset Problem]\end{note}
+The number of ways to select r objects from n different types of objects (where all objects of the same type are indistinguishable) is given by $\dbinom{n+r-1}{r}$ or equivalently, $\dbinom{n+r-1}{n-1}$. Here, since repetition is allowed, it is possible than r $>$ n. We use the stars and bars method to solve such problems. \\ \hfill \\
+Example: The number of solutions to the equation $x_1 + x_2 + x_3 = 5$ where $x_1, x_2, x_3$ are non-negative integers is equal to $\dbinom{5+3-1}{3-1}$ = $\dbinom{7}{2}$ = 21
+
+
+\section{Relative Frequency and Probability}
+
+\begin{definition}[Relative Frequency]
+Let E be an experiment and let A be an event associated with E. Suppose we repeat the experiment n times and the event A occurs $n_A$ times. Then $f_A = \dfrac{n_A}{n}$ is called the relative frequency of the event A in the n repetitions of E.
+\end{definition}
+
+\thm{Properties of relative frequency:
+\begin{enumerate}
+    \item $0 \leq f_A \leq 1$
+    \item $f_A$ = 1 if, and only if, A occurs every time among the n repetitions.
+    \item $f_A$ = 0 if, and only if, A never occurs among the n repetitions.
+    \item If A and B are mutually exclusive events and if $f_{A \cup B}$ is the relative frequency associated with the event $A \cup B$, then $f_{A \cup B} = f_A + f_B$.
+    \item As the experiment is repeated more and more times, the value of $f_A$ approaches a stable value. In particular, if $n$ is the number of times the experiment is repeated, $$\lim_{n \xrightarrow{} \infty} f_A = P(A)$$ That is, the relative frequency of occurrence of an event approaches its theoretical probability as the experiment is repeated a large number of times.
+\end{enumerate}
+}
+
+\thm{Axioms of Probability \\ \hfill \\
+Consider an experiment whose sample space is S, and let A be an event associated with the experiment. Then,
+\begin{enumerate}
+    \item $0 \leq P(A) \leq 1$
+    \item $P(S) = 1$
+    \item If $A_1, A_2, \dots $ are mutually exclusive events then, 
+    $$
+    P\Bigl( \bigcup_{i=1}^{\infty} A_{i} \Bigr) = 
+    \sum_{i = 1}^{\infty} P(A_i)
+    $$
+    \item $P(\phi) = 0$
+    \item $P(A^{'}) = 1 - P(A)$
+    \item If $A \subset B$, then $P(A) \leq P(B)$
+\end{enumerate}
+}
+\thm{Inclusion-Exclusion Principle \\
+\begin{equation*}
+\begin{split}
+P(A_1 \cup A_2 \cup ... \cup A_n) =& 
+\sum_{i = 1}^{n}P(A_i) - \sum_{i = 1}^{n -1} \sum_{j = i + 1}^{n} P(A_i \cap A_j) +  \\ & \sum_{i = 1}^{n-2} \sum_{j = i + 1}^{n-1} \sum_{k = j + 1}^{n} P(A_i \cap A_j \cap A_k) - \dots + (-1)^{n +1}P(A_1 \cap A_2 \cap ... \cap A_n)
+\end{split}
+\end{equation*}
+In particular, 
+\begin{enumerate}
+    \item $P(A \cup B) = P(A) + P(B) - P(A \cap B)$
+    \item $P(A \cup B \cup C) = P(A) + P(B) + P(C) - P(A \cap B) - P(B \cap C) - P(C \cap A) + P(A \cap B \cap C)$
+\end{enumerate}
+}
+
+\begin{note}[Some Interesting Problems]\end{note}
+Click on the links below: \\ 
+\begin{enumerate}
+    \item \href{https://www.youtube.com/watch?v=KtT_cgMzHx8}{The Birthday Problem}
+    \item \href{https://www.youtube.com/watch?v=TAD3iC49v-Q}{The Airplane Problem}
+    \item \href{https://en.wikipedia.org/wiki/Boy_or_Girl_paradox}{Boy or Girl Paradox}
+    \item \href{https://stats.stackexchange.com/questions/93830/expected-number-of-ratio-of-girls-vs-boys-birth}{Another Boy-Girl Paradox}
+\end{enumerate}
+
+
+\begin{note}\end{note}
+Do not assume that each of the outcomes is equally likely in all cases. For example, consider the case of buying a lottery ticket. There are two possible scenarios - either you win the lottery, or you don't. But this does not mean that $P(win) = P(lose) = \dfrac{1}{2}$.
+
+
+\section{Conditional Probability}
+
+\begin{definition}[Conditional Probability]
+Let A and B be two events associated with an experiment E. We denote the conditional probability of the event A, given that the event B has already occurred by $P(A | B)$.
+\end{definition}
+
+\begin{note}[Formula for Conditional Probability]\end{note}
+$$
+P(A|B) = \dfrac{P(A \cap B)}{P(B)} \text{, where } P(B) \neq 0
+$$
+
+
+\thm{Multiplication Rule of Probability
+$$
+P(A_1 \cap A_2 \cap \dots \cap A_n) = P(A_1) P(A_2 | A_1) P(A_3 | A_2 \cap A_1) \dots P(A_n | A_{n-1} \cap A_{n-2} \cap \dots \cap A_1),
+$$ provided that $P(A_1 \cap \dots \cap A_{n-1}) > 0$ 
+}
+
+\thm{Law of Total Probability \\ 
+Let $E_1, E_2, \dots , E_n$ be a partition of the sample space S. In other words, $E_1, E_2, \dots, E_n$ are mutually exclusive and exhaustive events such that $E_i \cap E_j = \phi $ for all $i \neq j$
+and $\bigcup_{i = 1}^n E_i = S$. Then for any event A,
+$$
+P(A) = \sum_{i = 1}^n P(A \cap E_i) = \sum_{i = 1}^n P(E_i) P(A | E_i)
+$$
+}
+
+\begin{note}\end{note}
+Recall that in set theory, a partition of a set A is a set of mutually disjoint non-empty subsets of A whose union is A. In other words, B is a partition of A if B is a set whose elements are non-empty subsets of A, and every element of A is in exactly one element of B.
+
+
+\thm{Bayes' Theorem \\
+Combining the formula for conditional probability and the law of total probability, we come up with a powerful way to find the probability of a cause of an event, given that the event occurred. This is called Bayes' Theorem. \\
+Let $A_1, A_2, \dots , A_n$ be a partition of the sample space S. Then,
+$$
+P(A_k|B) = \dfrac{P(A_k)P(B|A_k)}{\sum_{i = 1}^n P(A_i)P(B|A_i)}
+$$
+}
+
+\begin{note}[Some interesting links for Bayes' Theorem]\end{note}
+\begin{enumerate}
+    \item \href{https://www.youtube.com/watch?v=4Lb-6rxZxx0}{The Monty Hall Problem}
+    \item \href{https://www.youtube.com/watch?v=HZGCoVF3YvM}{Bayes' Theorem Explained}
+    \item \href{https://www.youtube.com/watch?v=lG4VkPoG3ko}{The Medical Test Paradox}
+    \item \href{https://www.anesi.com/bayes.htm}{Example from Thinking Fast and Slow}
+    \item \href{https://www.youtube.com/watch?v=1csFTDXXULY}{Base Rate Neglect Problem}
+\end{enumerate}
+
+
+\section{Independent Events}
+In general, knowing that an event A has occurred gives a different view on the chance of an event B's occurrence. But, sometimes the probability occurrence of two events do not depend on each other. In other words, events A and B are said to be independent if the occurrence (or non-occurrence) of one event does not in any way influence the occurrence (or non-occurrence) of the other event.
+
+\begin{definition}[Independent Events]
+Mathematically, two events A and B are said to be independent if, and only if, $P(A \cap B) = P(A) P(B)$
+\end{definition}
+Alternatively, if A and B are independent events, then $P(A|B) = P(A)$ and $P(B|A) = P(B)$
+
+\begin{note}[Properties of Independent Events]\end{note}
+Suppose $P(A) > 0, P(B) > 0$. 
+\begin{enumerate}
+    \item If A and B are independent events, then they cannot be mutually exclusive.
+    \item If A and B are mutually exclusive, then they cannot be independent.
+    \item The sample space $S$ as well as the empty set $\phi$ are independent of any event.
+    \item If $A \subset B$, then A and B are dependent unless $B = S$
+\end{enumerate}
+However, (1) and (2) does not imply that any two events with non-zero probability must be either independent or mutually exclusive. 
+
+\begin{note}\end{note}
+The properties of independence, unlike the mutually exclusive property, cannot be shown on a Venn diagram. In general, it is not always easy to deduce whether two events are independent without finding their probabilities. Moreover, there is no relation between mutually exclusive events and independent events other than the fact that two events with non-zero probabilities cannot be both mutually exclusive and independent simultaneously.
+
+
+\thm{If A and B are independent events, then so are the following:
+\begin{enumerate}
+    \item $A$ and $B^{'}$
+    \item $A^{'}$ and $B$
+    \item $A^{'}$ and $B^{'}$
+\end{enumerate}
+}
+The above theorem is true because the occurrence or non-occurrence of A and B should not have any affect on the occurrence of non-occurrence of the other, by the definition of independent events.
+
+\begin{definition}[Pairwise independent Events]
+A set of events $A_1, A_2, ..., A_n$ are said to be pairwise independent if, and only if, $$
+P(A_i \cap A_j) = P(A_i)P(A_j) \text{\qquad for all } i \neq j \text{ and }
+i,j = 1,2,...,n
+$$
+\end{definition}
+
+\begin{definition}[Mutually Independent Events]
+The events $A_1, A_2, ..., A_n$ are said to be mutually independent (or simply independent) events if, and only if, for any subset $\{A_{i_1}, A_{i_2}, \cdots, A_{i_k}\}$ of $\{A_1, A_2, \cdots, A_n\}$, 
+$$
+P(A_{i_1} \cap A_{i_2} \cap \cdots \cap A_{i_k}) = P(A_{i_1}) P(A_{i_2}) \dots P(A_{i_k}) \text{\qquad for all distinct i's}
+$$
+\end{definition}
+
+\begin{note}[Remarks on Independent Events]
+\end{note}
+\begin{enumerate}
+    \item There are a total of $2^n - n - 1$ different cases in case of n mutually independent events, and only $\dbinom{n}{2}$ different cases in case of n pairwise independent events. This is because, for mutually independent events, you can select any number of events (between 2 and n) at a time, while you can only select 2 events at a time for pairwise independent events. (Recall that $\dbinom{n}{0} + \dbinom{n}{1} + ... + \dbinom{n}{n} = 2^n$. So, $\dbinom{n}{2} + \dbinom{n}{3} + ... + \dbinom{n}{n} = 2^n - n - 1$)
+    \item Mutual independence implies pairwise independence, but pairwise independence does not necessarily imply mutually independence (except in the case where there are only two events, in which case, both mean exactly the same thing). This shows that mutual independence is a stronger condition than pairwise independence.
+    \item Suppose the events $A_1, A_2, \cdots, A_n$ are mutually independent. Let 
+    $$
+    B_i = A_i \text{ or } A_{i}^{'}, \text{ where }i = 1,2,\cdots,n
+    $$
+    Then, $B_1, B_2, \cdots, B_n$ are also mutually independent events.
+\end{enumerate}
+
+
