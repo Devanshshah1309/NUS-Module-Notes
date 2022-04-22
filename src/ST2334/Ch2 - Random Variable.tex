@@ -1,0 +1,321 @@
+\chapter{Random Variables}
+
+\section{Introduction}
+\begin{definition}[Random Variable]
+Let $S$ be a sample space associated with the experiment $E$. A function $X$, which assigns a number to every element $s \in S$ is called a random variable.
+\end{definition}
+
+\begin{note}
+\end{note}
+\begin{enumerate}
+    \item $X$ is a real-valued function, ie, the range of $X$ is a subset of $\mathbb{R}$.
+    \item The range of $X$ is the set of real numbers, $R_X = \{ x \ |\  x = X(s), s \in S \}$. Each possible value $x$ of $X$ represents an event that is a subset of the sample space $S$.
+    \item If $S$ has elements that are themselves real numbers, we take $X(s) = s$. In this case, $R_X = S$.
+\end{enumerate}
+
+
+\begin{definition}[Equivalent Events]
+Let $E$ be an experiment and $S$ its sample space. Let $X$ be a random variable defined on $S$ and $R_X$ be its range space. That is, $X: S \xrightarrow{} \mathbb{R}$. Let $B$ be an event with respect to $R_X$, i.e., $B \subset R_X$
+Suppose that $A$ is defined as $A = \{ s \in S | X(s) \in B \}$. In other words, $A$ consists of all the sample points, s, in S for which $X(s) \in B$. In this case we say that A and B are equivalent events and $P(A) = P(B).$
+\end{definition}
+
+\section{Discrete Probability Distributions}
+
+\begin{definition}[Discrete Random Variable]
+Let X be a random variable. If the number of possible values of X (i.e, the range space) is finite or countable infinite, we call X a discrete random variable. That is, the possible values of X may be listed as $x_1, x_2, x_3, \cdots$.
+\end{definition}
+
+\begin{definition}[Probability Function and Distribution]
+For a discrete random variable, each value of X has a certain probability $f(x)$. Such a function $f(x)$ is called the probability function (p.f.) or probability mass function (p.m.f.). The collections of pairs $(x_i, f(x_i))$ is called the probability distribution of X.
+\end{definition}
+
+\begin{note}\end{note}
+The probability of $X = x_i$ denoted by $f(x_i)$ (i.e., $f(x_i) = P(X = x_i)$ ) must satisfy the following two conditions.
+\begin{enumerate}
+    \item $\forall x_i \quad f(x_i) \geq 0$
+    \item $\sum_{i = 1}^{\infty}f(x_i) = 1$
+\end{enumerate}
+
+\section{Continuous Probability Distributions}
+
+\begin{definition}[Continuous Random Variable]
+Suppose that $R_X$, the range space of a random variable, $X$, is an interval or a collection of intervals. Then we say that $X$ is a continuous random variable.
+\end{definition}
+
+\begin{definition}[Probability Density Function]
+Let X be a continuous random variable. The probability density function (p.d.f.) $f(x)$ is a function satisfying the following conditions:
+\begin{enumerate}
+    \item $\forall x \in R_X \quad f(x) \geq 0 $
+    \item $\int_{R_X} f(x)dx = 1 $ or equivalently, $\int_{-\infty}^{\infty} f(x)dx = 1$ since $f(x) = 0$ for $x \notin R_X$ 
+    \item For any $c$ and $d$ such that $c < d$ and $(c,d) \subset R_X$, $P(c \leq X \leq d) = \int_{c}^{d} f(x) dx $
+\end{enumerate}
+\end{definition}
+
+\begin{note}
+\end{note}
+\begin{enumerate}
+    \item $P(c \leq X \leq d) = \int_{c}^{d} f(x) dx $ represents the area under the graph of the p.d.f. $f(x)$ between $x = c$ and $x = d$.
+    \item For any specified value of X, say $x_0$, 
+    $$
+    P(X = x_0) = \int_{x_0}^{x_0} f(x)dx = 0
+    $$
+    Hence in case of a continuous probability distribution, the probability that X equals to a fixed value is always 0 and $P(c \leq X \leq d) = P(c \leq X < d) = P(c < X \leq d) = P(c < X < d)$. Therefore, whenever dealing with continuous distributions, $<$ and $\leq$ can be used interchangeably.
+    \item  $A = \phi \implies P(A) = 0$ but the converse is not necessarily true, i.e., $P(A) = 0 \centernot\implies A = \phi$. For example, $A$ can be a non-empty set whose values all lie outside the sample space. Consider the event of obtaining a number in $A = \{7\}$ when a single die is thrown. Clearly, $P(A) = 0$ but $A \neq \phi$
+    \item If X assumes values only in some interval $[a,b]$, we may simply set $f(x) = 0$ for all X outside the interval.
+    \item If $X$ is a continuous random variable, and $f(x)$ is the probability density function, then it is possible that $f(x) > 1$ for some values of $x$. This is because $f(x) \neq P(X = x)$ (In fact, $P(X = x) = 0$ for all values of $x$ in case of continuous distribution). $f(x)$ gives the probability \textbf{density} (and not the actual probability). In other words,
+    $$
+    f(x) = \lim_{\delta x \xrightarrow{} 0} \dfrac{P(x \leq X \leq x + \delta x)}{\delta x}
+    $$
+    \item The probability density function of any distribution can never be negative. This can be proven as follows: \\ Assume that the pdf is negative over the interval $(a,b)$ (the pdf cannot be negative simply at a single point because it must be continuous). Then, $P(a \leq X \leq b) = \int_{a}^{b} f(x) dx$. Since the pdf is negative, the area under the pdf curve is below the x-axis and hence the integral will be negative. But probability can never be negative. Hence, pdf can also never be negative. \\ Moreover, another definition of pdf is that it is the derivative of the cumulative distribution function. We know that the CDF is always non-decreasing and so the derivative cannot be negative. (Recall that the derivative of a function gives the slope or gradient of the function)
+\end{enumerate}
+
+
+\section{Cumulative Distributive Function}
+
+\begin{definition}[Cumulative Distributive Function]
+Let X be a random variable - discrete or continuous. We define $F(x)$ to be the cumulative distribution function (c.d.f.) of the random variable X where
+$$
+F(x) = P(X \leq x)
+$$
+\end{definition}
+
+\subsection{CDF for Discrete Random Variables}
+If X is a discrete random variable, then
+$$
+F(x) = \sum_{t \leq x} f(t) = \sum_{t \leq x} P(X = t)
+$$
+The c.d.f of a discrete random variable is a step function. \\
+For any two numbers $a$ and $b$ with $a \leq b$, 
+\begin{equation*}
+\begin{split}
+    P(a \leq X \leq b) &= P(X \leq b) - P(X < a) \\
+    &= F(b) - F(a^{-})
+\end{split}
+\end{equation*}
+where $a^{-}$ represents the largest possible value of X that is strictly less than $a$. \\
+In particular, if the only possible values are integers and if $a$ and $b$ are integers, then 
+$$
+P(a \leq X \leq b) = P(X = a \text{ or } a + 1 \text{ or \dots or } b)
+$$
+Also, $P(a \leq X \leq b) = F(b) - F(a - 1)$. \\
+When $b = a, P(X = a) = F(a) - F(a - 1)$.
+
+\subsection{CDF for Continuous Random Variables}
+If X is a continuous random variable, then
+$$
+F(x) = \int_{-\infty}^x f(t) dt
+$$
+For a continuous random variable X, 
+$$
+f(x) = \dfrac{d}{dx}F(x)
+$$ provided the derivative exists. \\
+Also, $P(a \leq X \leq b) = P(a < X \leq b) = F(b) - F(a)$.
+
+\begin{note}\end{note}
+\hfill
+\begin{enumerate}
+    \item $F(x)$ is a non-decreasing function, i.e., $x_1 < x_2 \implies F(x_1) \leq F(x_2)$
+    \item $0 \leq F(x) \leq 1$
+\end{enumerate}
+
+
+\section{Mean and Variance of a Random Variable}
+
+\begin{definition}[Expected value]
+\hfill
+\begin{enumerate}
+    \item If $X$ is a discrete random variable taking on values $x_1, x_2, \cdots$ with probability function $f_X(x)$, then the mean or \textbf{expected value} or (mathematical expectation) of $X$, denoted by $E(X)$ (or $\mathbb{E}[X]$) as well as by $\mu_X$ is defined by 
+    $$
+    \mu_X = E(X) = \sum_i x_i f_X(x_i) = \sum_x xf_X(x)
+    $$
+    \item If $X$ is a continuous random variable with probability density function $f_X(x)$, the mean of $X$ is defined by
+    $$
+    \mu_X = E(X) = \int_{-\infty}^{\infty} xf_X(x)dx
+    $$
+\end{enumerate}
+\end{definition}
+
+\begin{note}
+\end{note}
+\begin{enumerate}
+    \item The expected value is not necessarily a possible value of the random variable $X$
+    \item In other words, the expected value is the weighted average of all the possible values of the random variable (weighted by their probabilities)
+    \item In the discrete case, if $f_X(x) = \dfrac{1}{N}$ for each of the N values of $x$, then the mean, $E(X) = \sum_i x_i f(x_i) = \dfrac{1}{N} \sum_i x_i$ becomes the average of the N items.
+\end{enumerate}
+
+\begin{definition}[Expectation of a Function of a Random Variable]
+For any function $g(X)$ of a random variable $X$ with p.f. (or p.d.f) $f_X(x)$,
+\begin{itemize}
+    \item $E[g(X)] = \sum_x g(x) f_X(x)$ if X is a discrete Random Variable and provided the sum exists
+    \item $E[g(X)] = \int_{-\infty}^{\infty} g(x)f_X(x)dx$
+\end{itemize}
+\end{definition}
+
+\begin{note}
+\end{note}
+\imp{ \textbf{Linearity of Expectation} \\
+A very important property of expectation is that it is distributive over linear functions of random variables, i.e., $E[X + Y] = E[X] + E[Y]$ where $X,Y$ are random variables. In general, $E[a_1X_1 + a_2X_2 + \dots + a_nX_n] = E[a_1X_1] + E[a_2X_2] + \dots + E[a_nX_n] = a_1E[X_1] + a_2E[X_2] + \dots a_nE[X_n]$ where the $X_i's$ are random variables. This is always true! (no constrains/requirements on the random variables)
+}
+
+A special case of expectation arises when $g(x) = (x - \mu_X)^2$. This leads to the definition of variance of a random variable X.
+
+\begin{definition}[Variance]
+Let $X$ be a random variable with p.f. (or p.d.f.) $f(x)$, then the variance of $X$ is defined as 
+\begin{equation*}
+\begin{split}
+\sigma_X^2 &= V(X) = E[(X - E(X))^2] =  E[(X - \mu_X)^2] \\
+&= 
+\begin{cases}
+\sum_x (x - \mu_X)^2 f_X(x) & \text{, if $X$ is discrete} \\
+\int_{-\infty}^{\infty}(x - \mu_X)^2 f_X(x)dx & \text{, if $X$ is continuous}
+\end{cases}
+\end{split}
+\end{equation*}
+\end{definition}
+
+Variance is the expectation of the squared deviation of a random variable from its expected value. Variance is a measure of dispersion, meaning it is a measure of how far a set of numbers is spread out from their average value.
+
+\begin{note}[Properties of Variance of R.V.]
+\end{note}
+\begin{itemize}
+    \item $V(X) \geq 0$ since it is equal to the sum of the squares of numbers (which must be non-negative).
+    \item $V(X) = E(X^2) - [E(X)]^2$. Then, we can write 
+    $$
+    V(X) = \sum_i x_i^2 f_X(x) - \left(\sum_i x_i f_X(x)\right)^2
+    $$ and similarly for the continuous case.
+    \item The positive square root of the variance is called the \textbf{standard deviation} of $X$, i.e., $\sigma_X = \sqrt{V(X)}$. We often use standard deviation instead of variance since the unit of standard deviation is the same as that of the random variable, but the unit of variance is the square of the unit of the random variable.
+    \item If $V(X) > 0$, then $\forall x \in \mathbb{R} \ P(X = x) < 1$. This is because, the variance is zero if, and only if, the random variable is actually a constant, i.e., $\exists c \ P(X = c) = 1$. (Proof by contraposition)
+    \item If the variance of $X$ is c, then the variance of $X + b$ is c. In other words, if each of the possible values a random variable can assume is increased/decreased by a constant, the variance remains unaffected.
+    \item If the variance of $X$ is c, then the variance of $bX$ is $b^2c$. In other words, if each of the possible values a random variable can assume is multiplied by a constant, the variance is multiplied by the square of that constant.
+    \item Combining the above 2 properties, $V(aX + b) = a^2V(X)$
+\end{itemize}
+
+\begin{note}[Properties of Expectation]
+\end{note}
+\begin{enumerate}
+    \item Expectation gives us the "population mean" (or intuitively, the central location of the possible values) of X. Therefore, $E(X)$ is also called the location parameter in some literature.
+    
+    \item The expected value of a constant is the constant itself.
+    
+    \item $g(x) = x^k$. Then $E(X^k)$ is called the \textbf{k-th moment of X}. $E[(X-\mu_X)^k]$ is called the \textbf{k-th central moment of X} or the \textbf{k-th moment about the mean} (Since $\mu_X$ gives a measure of centre of a distribution).
+    
+    \item $E(X - \mu_X) = 0$ (Because $E(X) = \mu_X = E(\mu_X)$ since $\mu_X$ is a constant). Therefore, the first central moment is always 0.
+    
+    \item $E[(X - E(X))^3]$ measures the degree of symmetry of the distribution. If it is close to zero, the distribution is more symmetric.
+    
+    \item $E(X^2) \geq (E(X))^2$, and the inequality holds trivially if, and only if, $X$ is a constant (i.e., non-random). More specifically, $\exists c \  P(X = c) = 1$. In such a case, $V(X) = 0$ (i.e., there is no variability for X, or in other words, X is not actually a "random" variable)
+    
+    \item $E(aX + b) = a E(X) + b$ where a and b are arbitrary constants. We prove the property for the discrete case: 
+    \begin{equation*}
+    \begin{split}
+    E(aX + b) &= \sum_x (ax + b)f_X(x) \\
+    &= \sum_x ax f_X(x) + \sum_x b f_X(x) \\
+    &= a \left( \sum_x x f_X(x) \right) + b \left( \sum_x f_X(x) \right ) \text{ Note: $\sum_x f_X(x) = 1$ as it is the probability function } \\
+    &= a E(X) + b
+    \end{split}
+    \end{equation*}
+    \item $V(X) = E(X^2) - [E(X)]^2$. The proof is as follows:
+    \begin{equation*}
+    \begin{split}
+        V(X) &= E[(X - \mu_X)^2] \\
+        &= E[X^2 - 2X\mu_X + \mu_X^2] \\
+        &= E(X^2) - 2\mu_X E(X) + E(\mu_X^2) \text{ (Note that $\mu_X = E(X)$ is a constant)} \\
+        &= E(X^2) - 2\mu_X^2 + \mu_X^2 \\
+        &= E(X^2) - \mu_X^2 \\
+        &= E(X^2) - [E(X)]^2
+    \end{split}
+    \end{equation*}
+    \item $V(aX + b) = a^2V(X)$ where a and b are arbitrary constants. The proof is as follows:
+    \begin{equation*}
+    \begin{split}
+    V(aX + b) &= E[(aX + b)^2] - [E(aX + b)]^2 \\
+    &= E(a^2X^2 + 2abX + b^2) - (a\mu_X + b)^2 \\
+    &= a^2E(X^2) + 2abE(X) + b^2 - (a^2\mu_X^2 + 2ab\mu_X + b^2) \\
+    &= a^2E(X^2) = a^2\mu_X^2 \text{ (Because $E(X) = \mu_X$)} \\
+    &= a^2[ E(X^2) - (E(X))^2] \\
+    &= a^2 V(X) \text{ (By property 2)}
+    \end{split}
+    \end{equation*}
+    
+    \item In general, $E[g(X)] \neq g(E(X))$. The equality only holds in the case of linear combinations of X.
+\end{enumerate}
+\begin{note}
+\end{note}
+It is important to remember that if 2 random variables $X$ and $Y$ are equal, then they follow the same distribution. But if two random variables follow the exact same distribution, it does not mean that they are equal. A distribution only gives us information about how a random variable behaves and the probability associated which each value being assumed by the random variable. For example, if $X$ refers to the number of heads when I toss a coin, and $Y$ refers to the number of heads when you toss a coin, both $X$ and $Y$ have the same distribution. But if I get a head, it does not mean that you get a head. Recall that we say that $X = Y \iff \forall s \in S \ X(s) = Y(s)$ (the value of the random variable is same for all the sample points). \\
+The above definition of equality of random variables is actually far more general and can be applied to functions too (since a random variable is just a function). Two functions $f$ and $g$ are said to be equal, i.e., $f = g$, if, and only if, 
+\begin{enumerate}
+    \item Domain of $f$ = Domain of $g$ = $A$
+    \item Codomain of $f$ = Codomain of $g$ = $B$
+    \item $\forall x \in A\ f(x) = g(x)$. That is, for every possible input, they give the same output.
+\end{enumerate}
+\section{Chebyshev's Inequality}
+If we know the probability distribution of some random variable $X$, then we can easily compute $E(X)$ and $V(X)$. However, the converse is not true, i.e., it is not possible to reconstruct the probability distribution of $X$ given $E(X)$ and $V(X)$. Hence, we cannot compute quantities such as $P(|X - E(X)| \leq c)$ for some positive constant c. \\
+Nonetheless, Russian Mathematician Pafnuty Chebyshev gave a very useful upper (or lower) bound to such a probability. The result is called Chebyshev's inequality.
+
+\thm{Chebyshev's Inequality \\
+Let $X$ be a random variable (discrete or continuous) with $E(X) = \mu$ and $V(X) = \sigma^2$. The for any positive number k,
+$$
+P(|X - \mu | \geq k\sigma) \leq \dfrac{1}{k^2}
+$$
+In other words, the probability that the value of X lies at least k standard deviations away from its mean is at most $\dfrac{1}{k^2}$, Alternatively,
+$$
+P(|X - \mu | < k\sigma) \geq 1 - \dfrac{1}{k^2}
+$$ since the two events are complementary to each other.}
+
+\begin{note}
+\end{note}
+\begin{itemize}
+    \item $|x| \leq k \iff -k \leq x \leq k$
+    \item The value of k in Chebyshev's Inequality can be any positive number 
+    \item This inequality is true for all distributions with finite mean and variance
+    \item The theorem gives a lower bound on the probability of $|X-\mu| < k\sigma$. There is no guarantee that this lower bound is close to the exact probability.
+\end{itemize}
+\hfill \\
+A slightly more convenient form of Chebyshev's Inequality is given as follows:
+\begin{equation*}
+\begin{split}
+    P(|X - \mu| \geq c) \leq \dfrac{V(X)}{c^2} \\
+    P(|X - \mu| < c) \geq 1 - \dfrac{V(X)}{c^2}
+\end{split}
+\end{equation*}
+for any positive constant c. Note that this is exactly the same as the formula given in the theorem. We can obtain these formulae by setting $c = k\sigma$ and using $k^2 = \dfrac{c^2}{\sigma^2} = \dfrac{c^2}{V(X)}$. 
+\\ \hfill \\
+When we need to find $P(a < X < b)$ when $(a,b)$ is not symmetric about $\mu$, we can still use Chebyshev's inequality by changing the interval and the inequalities accordingly. \\
+For example, if we want to calculate $P( -2\sigma < X - \mu < 2.5 \sigma)$, we may do it as follows:
+\begin{equation*}
+\begin{split}
+P(-2\sigma < X - \mu < 2.5\sigma) & \geq P(-2\sigma < X - \mu < 2 \sigma) \\
+& = P(|X - \mu| < 2\sigma) \\
+& \geq 1 - \dfrac{1}{2^2} = \dfrac{3}{4}
+\end{split}
+\end{equation*}
+\textbf{Important}: The chain of inequality must be the same throughout the argument. Otherwise, the equation gives no information whatsoever. For example, the following would not make much sense (although the equation is perfectly correct, we cannot draw any conclusion regarding what we actually want to calculate):
+\begin{equation*}
+\begin{split}
+P(-2\sigma < X - \mu < 2.5\sigma) & \leq P(-2.5\sigma < X - \mu < 2.5\sigma) \\
+&= P(|X - \mu| < 2.5\sigma) \\
+& \geq 1 - \dfrac{1}{2.5^2} = 0.84
+\end{split}
+\end{equation*}
+
+Some examples of Chebyshev's Inequality:
+\begin{itemize}
+    \item $P(X \geq \mu + 1) \leq Var(X)$. The proof is as follows: 
+    \begin{equation*}
+    \begin{split}
+        P(X - \mu \geq 1) & \leq P(|X - \mu| \geq 1) \\
+        & = P(|X - \mu| \geq k\sigma) \text{\qquad for $k = \dfrac{1}{\sigma}$} \\
+        & \leq \dfrac{1}{k^2} = \sigma^2 = Var(X)
+    \end{split}
+    \end{equation*}
+    
+    \item If $\mu = 0$, then $\forall k > 0, k \in \mathbb{Z}$,\quad  $P(X^{2k} \geq 1) \leq Var(X)$. The proof is as follows:
+    \begin{equation*}
+    \begin{split}
+    X^{2k} \geq 1 \iff X^2 \geq 1^{\frac{1}{k}} = 1 \iff |X| \geq 1 \\
+    \therefore P(X^{2k} \geq 1) &= P(|X| \geq 1) \\
+    &= P(|X - \mu| \geq 1) \text{\qquad where $\mu$ = 0} \\
+    & \leq Var(X) \text{\qquad from our first example}
+    \end{split}
+    \end{equation*}
+\end{itemize}

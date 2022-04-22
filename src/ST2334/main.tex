@@ -1,0 +1,69 @@
+\documentclass[12pt]{report}
+\usepackage[utf8]{inputenc}
+\usepackage[a4paper,portrait,rmargin=0.3in,lmargin=0.3in,tmargin=0.75in,bmargin=0.5in]{geometry}
+\usepackage{mathtools}
+\usepackage{systeme}
+\usepackage{amssymb}
+\usepackage{fancyhdr}
+\usepackage{setspace}
+\usepackage{hyperref}
+\usepackage{enumerate}
+\usepackage{titlesec}
+\usepackage{centernot}
+\usepackage{graphicx}
+\usepackage{amsthm}
+\usepackage{framed}
+\usepackage[most]{tcolorbox}
+\usepackage{xcolor}
+\usepackage{pdfpages}
+
+\usepackage{tgbonum}
+% % Type-writer font
+% \renewcommand*\ttdefault{cmvtt}
+% \renewcommand*\familydefault{\ttdefault} %% Only if the base font of the document is to be typewriter style
+% \usepackage[OT1]{fontenc}
+
+
+\colorlet{shadecolor}{orange!15}
+\newtheorem{definition}{Definition}[section]
+\newtheorem{theorem}[definition]{Theorem}
+\newtheorem{note}[definition]{Note}
+\newcommand\perm[2]{\prescript{#1\mkern-2.5mu}{}P_{#2}}
+\newcommand\comb[2]{\prescript{#1\mkern-0.5mu}{}C_{#2}}
+\newenvironment{imp}[1]{{\color{red} {#1} }} %for important points
+
+\newenvironment{thm}[1]{ 
+\begin{shaded}
+\begin{theorem} {#1}
+\end{theorem}
+\end{shaded}}
+
+\title{ST2334 Statistics and Probability Notes}
+
+\author{Devansh Shah}
+\date{February 2022}
+
+\begin{document}
+\doublespacing
+\maketitle
+\thispagestyle{empty}
+\tableofcontents
+\pagestyle{fancy}
+\lhead{Devansh Shah}
+\rhead{\thepage}
+\cfoot{}
+\input{Ch1 - Basic Probability}
+
+\input{Ch2 - Random Variable}
+
+\input{Ch3 - 2-D Random Variables}
+
+\input{Ch4 - Special Probability Distributions}
+
+\input{Ch5 - Sampling and Sampling Distributions}
+
+\input{Ch6 - Estimation based on Normal distribution}
+
+\input{Ch7 - Hypothesis Testing based on Normal Distribution}
+\end{document}
+

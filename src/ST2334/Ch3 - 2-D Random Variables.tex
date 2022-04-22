@@ -1,0 +1,355 @@
+\chapter{2-Dimensional Random Variables and Conditional Probability Distributions}
+
+\section{Introduction}
+
+\begin{definition}[2-D Random Variable]
+Let E be an experiment and S be a sample space associated with E. Let X and Y be two functions each assigning a real number to each $s \in S$. Then, we call $(X,Y)$ a two dimensional random variable or a random vector.
+\end{definition}
+
+
+
+\begin{definition}[Range Space]
+$R_{X,Y} = \{ (x,y)\  |\  x = X(s), y = Y(s), s \in S \}$
+\end{definition}
+
+\begin{definition}[n-Dimensional Random Vector]
+Let $X_1, X_2, ... , X_n$ be n functions each assigning a real number to every outcome $s \in S$. We call $(X_1, X_2, ..., X_n)$ an n-dimensional random variable or an n-dimensional random vector
+\end{definition}
+
+\begin{definition}[Discrete 2-D Random Variable]
+$(X,Y)$ is a 2-D discrete random variable if the possible values of $(X(s), Y(s))$ are finite or countable infinite. That is, the possible values of $(X(s), Y(s))$ may be represented as 
+$$
+(x_i, y_j), \text{ for } i = 1,2,3, \dots ; j = 1,2,3, \dots 
+$$
+\end{definition}
+
+\begin{definition}[Continuous 2-D Random Variable]
+$(X,Y)$ is a 2-D continuous random variable if the possible values of $(X(s), Y(s))$ can assume all values in some region of the Euclidean plane $\mathbb{R}^2$
+\end{definition}
+
+\section{Joint Probability Density Function}
+
+\subsection{Joint Probability Function for Discrete RVs}
+
+Let $(X,Y)$ be a 2-D Discrete random variable defined on the sample space of an experiment. With each possible value $(x_i, y_j)$, we associate a number $f_{X,Y}(x_i,y_j)$ representing $P(X = x_i, Y = y_j)$ and satisfying the following conditions:
+\begin{enumerate}
+    \item $f_{X,Y}(x_i,y_j) \geq 0 \quad \forall (x_i,y_j) \in R_{X,Y}$
+    \item $\sum_{i = 1}^{\infty} \sum_{j = 1}^{\infty} f_{X,Y}(x_i, y_j) = \sum_{i = 1}^{\infty} \sum_{j = 1}^{\infty} P(X = x_i, Y = y_j) = 1 $
+\end{enumerate}
+The second condition can be rewritten simply as the summation over all $f(x_i, y_i) > 0$ equals to 1. That is,
+$$
+\sum_{(x_i, y_i):f_{X,Y}(x_i,y_i) > 0} f_{X,Y} (x_i,y_i) = 1
+$$
+The function $f_{X,Y}(x_i,y_j)$  defined for all pairs of values $(x_i, y_j) \in R_{X,Y}$ is called the joint probability function of $(X,Y)$. \\
+Let A be any set consisting of pairs of $(x,y)$ values. Then the probability $P((X,Y) \in A)$ is defined by the summation of the joint probability function over all the pairs in A. That is, 
+$$
+P((X,Y) \in A) = \sum_{(x,y) \in A} f_{X,Y}(x,y)
+$$
+
+\subsection{Joint Probability Density Function for Continuous RVs}
+Let $(X,Y)$ be a 2-D continuous random variable assuming all values in some region R of the Euclidean plane $\mathbb{R}^2$. Then, $f_{X,Y}(x,y)$ is called a joint probability density function if it satisfies the following 2 conditions:
+\begin{enumerate}
+    \item $f_{X,Y}(x,y) \geq 0 \quad \forall (x,y) \in R_{X,Y}$
+    \item 
+    $$
+    \iint_{(x,y) \in R_{X,Y}} f_{X,Y}(x,y) \  dx\  dy = 1
+    $$ or alternatively, 
+    $$
+    \int_{-\infty}^{+\infty} \int_{-\infty}^{+\infty} f_{X,Y} (x,y)\  dx\  dy = 1
+    $$
+\end{enumerate}
+Moreover, if the Cumulative Density function of a distribution with 2 random variables is $F(x,y)$ where $F(x,y) = P(X \leq x, Y \leq y),$ then we can obtain the joint probability density function by taking the derivative of $F(x,y)$. However, since there are two variables, we can take the partial derivative with respect to x and y successively. In other words,
+\begin{equation*}
+\begin{split}
+f_{X,Y}(x,y) &= \dfrac{\partial^2}{\partial x \partial y} F_{X,Y}(x,y) \\
+&= \dfrac{\partial}{\partial x} \left(\dfrac{\partial}{\partial y} F_{X,Y}(x,y) \right ) \\
+&= \dfrac{\partial}{\partial y} \left(\dfrac{\partial}{\partial x} F_{X,Y}(x,y) \right ) 
+\end{split}
+\end{equation*}
+
+
+We know by Clairaut's theorem (mixed derivative theorem) that the order of mixed partial derivatives does not matter.
+
+It is also necessary to remember that the joint probability density function does not give the actual probability - it only indicates the density of probability in that region. So, it is possible (and allowed) for the value of $f_{X,Y}(x,y)$ to be greater than 1. (The only restriction on $f_{X,Y}(x,y)$ is that it should always be non-negative and its integral over the 2-D plane must be equal to 1.)
+
+\section{Marginal and Conditional Probability Distributions}
+
+\begin{definition}[Marginal Probability Distribution]
+Let $(X,Y)$ be a 2-D random variable with joint probability function (joint probability density function in case of continuous RV) $f_{X,Y}(x,y)$. The marginal probability distributions of X and Y are respectively given by:
+\begin{itemize}
+    \item For discrete RV,
+    $$
+    f_X(x) = \sum_y f_{X,Y}(x,y) \qquad \text{and} \qquad f_Y(y) = \sum_x f_{X,Y}(x,y)
+    $$
+    \item For continuous RV,
+    $$
+    f_X(x) = \int_{-\infty}^{+\infty} f_{X,Y}(x,y) \  dy \qquad \text{and} \qquad f_Y(y) = \int_{-\infty}^{+\infty} f_{X,Y}(x,y) \ dx
+    $$
+\end{itemize}
+\end{definition}
+
+\begin{note}
+\end{note}
+The practical interpretation of the marginal distribution of X is as follows: we are focusing on viewing the distribution of X by ignoring the presence of Y. Note that
+\begin{itemize}
+    \item $f_X(x)$ should not involve $y$
+    \item $f_X(x)$ is a pdf/pmf and so it must have all the properties of a pdf/pmf
+\end{itemize}
+
+If $(X,Y)$ is discrete, then the marginals are also discrete. Similarly, if $(X,Y)$ is continuous, the marginals must also be continuous. Note that it is possible for $X$ to be discrete and $Y$ to be continuous but we do not consider such cases here.
+
+\begin{note}
+\end{note}
+Note that $f(x,y)$ not only tells us how $X$ and $Y$ behave independently (through the marginal), but it also tells us how $X$ and $Y$ behave jointly and how they affect each other. So, you can derive the marginal from the joint distribution but you cannot derive the joint distribution given the 2 marginal distributions (in general). However, in special cases (where the variables are independent) it is possible to reconstruct the joint distribution given the marginals.
+
+\begin{definition}[Conditional Probability Distribution]
+Let $(X,Y)$ be a discrete (or continuous) 2-D random variable with joint probability function (or joint p.d.f.) $f_{X,Y}(x,y)$. Let $f_X(x)$ and $f_Y(y)$ be the marginal probability functions of X and Y respectively. Then, the conditional distribution of Y given that $X = x$ is given by 
+$$
+f_{Y|X}(y|x) = \dfrac{f_{X,Y}(x,y)}{f_X(x)}, \qquad \text{provided} \ f_X(x) > 0
+$$ for each $x$ within the range of X. \\
+Similarly, the conditional distribution of X given that $Y = y$ is given by 
+$$
+f_{X|Y}(x|y) = \dfrac{f_{X,Y}(x,y)}{f_Y(y)}, \qquad \text{provided} \ f_Y(y) > 0
+$$ for each $y$ within the range of Y.
+\end{definition}
+In other words, the conditional probability density function of $Y$ given $X$ is simply the joint probability density of $(X,Y)$ divided by the marginal distribution of $X$.
+\begin{note}[Remarks]
+\end{note}
+\begin{enumerate}
+    \item The conditional p.f.'s (p.d.f.'s) satisfy all the requirements for a 1-D p.f. (p.d.f.). Thus, we have 
+        \begin{enumerate}
+            \item For a fixed $y, f_{X|Y}(x|y) \geq 0$ and for a fixed $x, f_{Y|X}(y|x) \geq 0$
+            \item For discrete RVs,
+            $$
+            \sum_x f_{X|Y}(x|y) = 1 \qquad \text{and} \qquad \sum_y f_{Y|X}(y|x) = 1
+            $$
+            For continuous RVs,
+            $$
+            \int_{-\infty}^{+\infty} f_{X|Y}(x|y)\ dx = 1 \qquad \text{and} \qquad \int_{-\infty}^{+\infty} f_{Y|X}(y|x)\ dy = 1
+            $$
+        \end{enumerate}
+    \item For $f_X(x) > 0,$ 
+    $$f_{X,Y}(x,y) = f_X(x)f_{Y|X}(y|x)$$
+    Similarly, for $f_Y(y) > 0,$
+    $$ f_{X,Y}(x,y) = f_Y(y) f_{X|Y}(x|y)$$
+\end{enumerate}
+
+\begin{note}
+\end{note}
+Consider $f_{Y|X}(y|x)$ for the following points:
+\begin{itemize}
+    \item The conditional distribution is similar in meaning to the conditional probability. It is the distribution of the RV $Y$ when the RV $X$ is fixed at a certain value $x$.
+    \item It is important to remember that $f_{Y|X}(y|x)$ is a distribution for $y$ (and NOT $x$), so it must satisfies all the properties of a pdf/pmf of the argument $y$ for every $x$ that it is defined.
+    \item $f_{Y|X}(y|x)$ may or may not be a function of $x$. But it is defined only when $x$ satisfies $f_X(x) > 0$. If $f_{Y|X}(y|x)$ does not depend on $x$, then $X$ and $Y$ are independent.
+    \item $f_{Y|X}(y|x)$ is NOT a pdf/pmf for $x$. So, there is no requirement that $\int_{-\infty}^{+\infty} f_{Y|X}(y|x)dx$ = 1 when $Y$ is continuous or $\sum_{x} f_{Y|X}(y|x) = 1$ when $Y$ is discrete.
+\end{itemize}
+
+\begin{note}[Conditional Probability and Conditional Expectation]
+\end{note}
+Both the conditional probability and conditional expectation are established on the conditional distribution. In particular, if $(X,Y)$ is a continuous random vector, for any $x$ and $y$,
+$$
+P(Y \leq y | X = x) = \int_{-\infty}^{y} f_{Y|X} (t|x) dt
+$$
+$$
+E(Y|X = x) = \int_{-\infty}^{\infty} y f_{Y|X} (y|x) dy,
+$$
+where the former depends on both $y$ and $x$ but the latter depends only on $x$. If $(X,Y)$ is a discrete random variable, the integration is replaced with summation. \\
+Alternatively, you can also use
+$$
+E(Y|X)  = \int_{-\infty}^{\infty} y f_{Y|X} (y|X) dy,
+$$
+which is a function of the random variable $X$.
+
+\begin{note}[Uniform Distribution]
+\end{note}
+$(X,Y)$ is uniformly distributed if its pdf/pmf is in the form
+$$
+f_{X,Y} (x,y) = \begin{cases}
+c \qquad (x,y) \in A \\
+0 \qquad \text{elsewhere}
+\end{cases},
+$$
+where $c$ is a real number independent of $x$ and $y$. In fact if $(X,Y)$ is continuous, $c = \dfrac{1}{area(A)}$; if $(X,Y)$ is discrete, $c = \dfrac{1}{\#A}$ where \#A represents the number of elements in A.\\
+$(X,Y)$ is uniform does not imply that $X$ and/or $Y$ is uniform. Likewise, "both $X$ and $Y$ are uniformly distributed" does not imply that $(X,Y)$ is uniformly distributed. \\
+It is important to note that when the joint probability density is uniform inside a region $A_1$ and zero otherwise, then the probability of $(X,Y) \in A_2$ is simply $\dfrac{area(A_2 \cap A_1)}{area(A_1)}$. In other words, the probability of is proportional to the area of the region (where is it non-zero).
+\begin{note}
+\end{note}
+When we say that the double integral of the pdf over the cartesian plane must be equal to 1, we mean that the volume bounded by the pdf over the entire plane is 1. When the joint pdf is uniform over a bounded region (because if the region is unbounded, $f_{X,Y}(x,y)$ would have to be 0 as the area is infinite), the volume bounded by the pdf over that region is simply the area of the region times the height (which is the constant value of pdf). This is why, probability is proportional to the area in which we are calculating the probability (NOT the area over which the pdf is uniform and non-zero)
+\section{Independent Random Variables}
+\begin{definition}[Independent RV]
+Random variables $X$ and $Y$ are said to be independent if, and only if, $$
+f_{X,Y} (x,y) = f_X(x) f_Y(y) \qquad \textbf{for all } x,y
+$$
+This can be extended to n random variables - $X_1, X_2, ... , X_n$ are independent if, and only if,
+$$
+f_{X_1, X_2, ... , X_n}(x_1, x_2, ..., x_n) = f_{X_1}(x_1) f_{X_2}(x_2) ... f_{X_n}(x_n) \qquad \textbf{for all } x_i
+$$
+\end{definition}
+
+The interpretation of independent random variables is similar to the interpretation of independent events. In this case, if $X$ and $Y$ are 2 independent random variables, then knowing the value of one does not affect the distribution of the other random variable. It practically means that the value of one random variable is not related to that of the other.
+
+\begin{note}[Checking independence]
+\end{note}
+There are several ways to define/check the independence of random variables. They are:
+\begin{itemize}
+    \item Random variables $X,Y$ are independent if, and only if, for \textbf{arbitrary} sets $A, B \subset \mathbb{R}$, 
+    $$
+    P(X \in A; Y \in B) = P(X \in A) P(Y \in B),
+    $$ which is quite similar to the definition of independent events.
+    \item Random variables $X,Y$ are independent if, and only if, for any $x, y \in \mathbb{R}$,
+    $$
+    P(X \leq x; Y \leq y) = P(X \leq x) P(Y \leq y),
+    $$ which can be rewritten as $F_{X,Y} = F_{X}(x) F_{Y}(y)$
+    \item Random variables $X,Y$ are independent if, and only if, for \textbf{any} functions $g_1$ and $g_2$, $E(g_1(X)g_2(Y))$ = $ E(g_1(X)) \times  E(g_2(Y))$
+\end{itemize}
+
+\begin{note}
+\end{note}
+Note that in general, $f_{Y|X}(y|X) \neq f_{Y}(y)$ for a particular value of $Y$. They are equal for all values of $X,Y$ if, and only if, $X,Y$ are independent events. This follows from the interpretation of independent events - the knowledge about $X$ does not affect the distribution of $Y$. This is analogous to the probability case, in which, $P(A|B) = P(A)$ when $A, B$ are independent.
+
+\begin{note}
+\end{note}
+In the conditional distribution $f_{Y|X}$, there can be 2 variables $x,y$. However, the random variable is only $y$ since we need to fix the value of $x$ before solving. Furthermore, if $X$ and $Y$ are independent, then $f_{Y|X}$ only involves $y$. This is because for independent events, the conditional distribution is equal to the marginal distribution (irrespective of the the value of $x$.) In other words $Y|X$ only equals to $Y$ if $X$ and $Y$ are independent.
+
+\begin{note}[Product Space]
+\end{note}
+The product of 2 positive functions $f_X(x)$ and $f_Y(y)$ means a function that is positive on a product space. In other words, if $f_X(x) > 0$ for $x \in A_1$ and $f_Y(y) > 0$ for $y \in A_2$, then $f_X(x)f_Y(y) > 0$ for $(x,y) \in A_1 \times A_2$. An example of a product space is:
+$$
+(x,y) \in [a,b] \times [c,d] \iff a \leq x \leq c, \ b \leq y \leq d
+$$
+"$f_{X,Y}(x,y)$ is positive in a product space" is a necessary (but not sufficient) condition so that two random variables are independent. It can be used to assert that two random variables are not independent if this condition is not met, but it cannot be used to claim that two random variables are independent if they satisfy this condition. \\
+The logic behind this is very simple - if the region in which $f_{X,Y}(x,y)$ is positive is not a rectangle (say, its a triangle), then you can find a point outside the triangle such that it lies within both the intervals under which $x$ and $y$ are constrained. But since $f_{X,Y}(x,y)$ would be 0 there and the marginals $f_X(x)$ and $f_Y(y)$ would be non-zero, $f_{X,Y}(x,y) \neq f_X(x)f_Y(y)$
+\begin{itemize}
+    \item If $X,Y$ are continuous random variables, for them to be independent, we need that $A = \left\{ (x,y) | f_{X,Y} (x,y) > 0 \right\}$ can be written in the form $(\bigcup_{i = 1}^{\infty}[a_i,b_i]) \times (\bigcup_{j = 1}^{\infty}[c_j,d_j])$. An even quicker view is that at least it must be a union of a countable number of rectangles.
+    \item If $X,Y$ are discrete random variables, for them to be independent, we need that for every $x \in A_1,\  y \in A_2, \ f_{X,Y} (x,y) > 0$
+\end{itemize}
+If you can decompose $f_{X,Y}(x,y)$ into 2 factors - one involving only $x$ (and some constants) and the other involving only $y$ (and some constants), then they are independent random variables (although the two factors themselves may not be $f_X(x)$ and $f_Y(y)$). On the other hand, if you cannot decompose the joint p.d.f. $f_{X,Y}(x,y)$ into 2 factors by separating $x$ and $y$, they're  not independent. This provides an easy way to check if 2 random variables are independent or not. \\
+More formally, if we can rewrite the joint p.d.f $f_{X,Y}(x,y)$ as the product of two functions $g(x)$ and $h(y)$, then $X,Y$ are independent. Otherwise, they are not independent. It is important to remember that $g(x)$ is not necessarily the marginal distribution of $x$ and similarly, $h(y)$ is not necessarily the marginal distribution of $y$.
+
+\section{Expectation of Random Variables}
+\begin{definition}[Expectation]
+The expectation of $g(X,Y)$ is defined as 
+\begin{equation*}
+E[g(X,Y)] = 
+\begin{cases}
+\sum_x \sum_y g(x,y) f_{X,Y}(x,y), \qquad \text{for Discrete RV} \\
+\int_{-\infty}^{\infty} \int_{-\infty}^{\infty} g(x,y) f_{X,Y}(x,y) dx dy, \qquad \text{for Continuous RV}
+\end{cases}
+\end{equation*}
+\end{definition}
+
+\begin{note}[Expectation of Independent RV]
+\end{note}
+If $X,Y$ are independent random variables, then $E[XY] = E[X]E[Y]$. More generally, $E[g_1(X)g_2(Y)]$ = $E[g_1(X)] \times E[g_2(Y)]$ holds for \textbf{any} functions $g_1$ and $g_2$ \textbf{if, and only if}, $X$ and $Y$ are independent. 
+\begin{note}[Some interesting questions]
+\end{note}
+\begin{enumerate}
+    \item What is the meaning of $E(E(Y|X))$? How would you evaluate it? \\ Ans: $E(E(Y|X))$ : The inner expectation refers to the expected value of $y$ over the conditional distribution of $f_{Y|X}(y|x)$. So, $E(Y|X) = \int_{-\infty}^{\infty} y f_{Y|X}(y|X) dy$. The result would be a function of $X$. Then, the expectation of this would be taken over the marginal distribution of $x$ (since only $x$ is the random variable now). So,
+    $$
+    E(E(Y|X)) = \int_{-\infty}^{\infty} x \left(\int_{-\infty}^{\infty} y f_{Y|X}(y|X) dy \right) dx
+    $$
+    \item What is $E(Y)$? How would you evaluate it? \\ Ans: There are two ways to interpret and evaluate $E(Y)$.
+    \begin{enumerate}
+        \item Using the marginal distribution of $f_{Y}(y)$,
+        $$
+        E(Y) = \int_{-\infty}^{\infty} y f_Y(y)dy = \int_{-\infty}^{\infty} y \int_{-\infty}^{\infty}f_{X,Y}(x,y)dx dy
+        $$
+        \item Using the joint distribution of $X,Y$,
+        $$
+        \int_{-\infty}^{\infty}\int_{-\infty}^{\infty} y f_{X,Y}(x,y) dx dy
+        $$
+        In other words, for every value of $(x,y)$, just look at the value of $y$ and multiply it by its probability density - take the sum over all possible values of $(x,y)$.
+    \end{enumerate}
+    It is clear that both methods give the same answer (as expected - pun intended)
+    \item How would you compute $E[\alpha g_1(X) + \beta g_2(Y)]$ and $E[\alpha g_1(X) \beta g_2(Y)]$, where $\alpha, \beta$ are real numbers and $g_1, g_2$ are arbitrary but fixed functions? \\ Ans: 
+    \begin{equation*}
+    \begin{split}
+    E[\alpha g_1(X) + \beta g_2(Y)] &= \alpha E[g_1(X)] + \beta E[g_2(Y)] \\
+    &= \alpha \left( \int_{-\infty}^{\infty} \int_{-\infty}^{\infty} g_1(X) f_{X,Y} (x,y) dx\ dy \right) + \beta \left( \int_{-\infty}^{\infty} \int_{-\infty}^{\infty} g_2(Y) f_{X,Y} (x,y) dx\ dy \right)
+    \end{split}
+    \end{equation*}
+    
+    \begin{equation*}
+    \begin{split}
+        E[\alpha g_1(X) \beta g_2(Y)] &= \alpha \beta E[g_1(X) g_2(Y)]\\
+        &= \alpha \beta \left( \int_{-\infty}^{\infty} \int_{-\infty}^{\infty} g_1(X) g_2(Y) f_{X,Y}(x,y) dx \ dy \right) 
+    \end{split}
+    \end{equation*}
+    You cannot simplify it further unless you know that $X,Y$ are independent, in which case $E[\alpha g_1(X) \beta g_2(Y)]$ = $\alpha E[g_1(X)] \times \beta E[g_2(Y)]$
+\end{enumerate}
+\subsection{Covariance as a Special Case of Expectation}
+
+Let $g(X,Y) = (X - \mu_X)(Y - \mu_Y)$. This leads to the definition of covariance between two random variables.
+
+\begin{definition}[Covariance]
+Let $(X,Y)$ be a bivariate random vector with joint p.f. (or p.d.f.) $f_{X,Y}(x,y)$. Then, the covariance of $(X,Y)$ is defined as
+$$
+Cov(X,Y) = E[(X - \mu_X)(Y - \mu_Y)]
+$$
+\end{definition}
+For discrete case,
+\begin{equation*}
+\begin{split}
+    Cov(X,Y) &= E[(X - \mu_X)(Y-\mu_Y)] \\
+    &= \sum_x \sum_y (x - \mu_X)(y - \mu_Y) f_{X,Y}(x,y)
+\end{split}
+\end{equation*}
+For continuous case,
+\begin{equation*}
+\begin{split}
+    Cov(X,Y) &= E[(X - \mu_X)(Y-\mu_Y)] \\
+    &= \int_{-\infty}^{\infty} \int_{-\infty}^{\infty}  (x - \mu_X)(y - \mu_Y) f_{X,Y}(x,y) dx dy
+\end{split}
+\end{equation*}
+
+\begin{note}[Practical Interpretation of Covariance]
+\end{note}
+In probability theory and statistics, covariance is a measure of the joint variability of two random variables.If the greater values of one variable mainly correspond with the greater values of the other variable, and the same holds for the lesser values (that is, the variables tend to show similar behavior), the covariance is positive. In the opposite case, when the greater values of one variable mainly correspond to the lesser values of the other, (that is, the variables tend to show opposite behavior), the covariance is negative. The sign of the covariance therefore shows the tendency in the linear relationship between the variables. The magnitude of the covariance is not easy to interpret because it is not normalized and hence depends on the magnitudes of the variables. The normalized version of the covariance, the correlation coefficient, however, shows by its magnitude the strength of the linear relation. \\ 
+Covariance shows the joint behaviour of $X$ and $Y$. If covariance is positive, we can infer that whenever $X > \mu_X$, it is likely that $Y > \mu_Y$ (try to understand this using the definition of covariance). Similarly, whenever $X < \mu_X$, it is likely that $Y < \mu_Y$ (because the value of $(X - \mu_X)(Y - \mu_Y)$ would still be positive). On the other hand, if the covariance is negative, we can infer that whenever one of the random variables (say, $X$) is more than its expected value ($\mu_X$), the other random variable ($Y$) is likely to be less than its expected value $\mu_Y$.
+\begin{note}[Relation between Covariance and Independence]
+\end{note}
+If X and Y are independent, the covariance is zero (because there is no relation between the 2 random variables). But the converse is not necessarily true: covariance = 0 does not imply the independence of the random variables.
+\begin{note}[Remarks on Covariance]
+\end{note}
+\begin{itemize}
+    \item $Cov(X,Y) = E(XY) - \mu_X \mu_Y$ (i.e., $Cov(X,Y) = E(XY) - E(X) E(Y)$
+    \item If $X$ and $Y$ are independent, then $Cov(X,Y) = 0$. However, $Cov(X,Y) = 0 $  \textbf{does not imply} that $X$ and $Y$ are independent.
+    \item $Cov(X + a, Y + b) = Cov(X,Y)$
+    \item $Cov(aX, bY) = ab\ Cov(X,Y)$
+    \item Combining the above two properties, $Cov(aX + b, cY + d) = ac\ Cov(X,Y)$
+    \item $V(aX + bY) = a^2V(X) + b^2V(Y) + 2ab\ Cov(X,Y)$. The term $ 2ab\ Cov(X,Y)$ tells us how $X$ and $Y$ behave jointly. In particular, when $X,Y$ are independent, then $V(aX + bY) = a^2V(X) + b^2V(Y)$
+    \item Using $V(\alpha X) = \alpha^2V(X)$ for any real number $\alpha$, we can simplify the above to be: $V(X + Y) = V(X) + V(Y) + 2Cov(X,Y)$. This can also be extended to multiple random variables, namely, $V(X_1 + X_2 + \dots + X_n)$. This leads to the sum of $n$ variance terms and $\binom{n}{2}$ co-variance terms. However, if the random variables are uncorrelated, this formula can be greatly simplified as all the covariance terms disappear; so we have if $X_1, X_2, \dots, X_n$ are pairwise uncorrelated,
+    $$
+    V(X_1 \pm X_2 \pm X_3 \pm \dots \pm X_n) = V(X_1) + V(X_2) + \dots + V(X_n)
+    $$
+    Note the "$\pm$" on the left side of the equality and the "+" on the right side. This is because $(-1)^2 = 1$
+    \item The variance is a special case of the covariance in which the two variables are identical (that is, in which one variable always takes the same value as the other)
+    $$
+    Cov(X,X) = var(X) \equiv \sigma^2(X) \equiv \sigma^2_X
+    $$
+    \item For any constant $\alpha$, $Cov(X, \alpha) = 0$
+    \item Covariance depends on the degree of association between $X$ and $Y$, and also on the magnitudes of $X$ and $Y$. So, larger covariance does not necessarily imply larger degree of association (i.e., the magnitude of $X$ and $Y$ can be big). Thus, we use correlation coefficient to eliminate the impact of the magnitude of $X$ and $Y$. We adjust it using $\sigma_X$ and $\sigma_Y$, since they tell us about the magnitude of $X$ and $Y$.
+\end{itemize}
+Covariance measures the \textbf{linear} relationship between 2 variables. So, if two random variables are uncorrelated (i.e., their covariance is 0) it simply means that there is no linear relationship between them. It is possible that they are very closely associated by a non-linear relationship (eg. logarithmic, quadratic, trigonometric, etc.) and hence, they may not be independent. So, independence is a much stronger (and stricter) condition than uncorrelatedness.
+
+\subsection{Correlation coefficient}
+\begin{definition}[Correlation coefficient]
+Pearson's correlation coefficient is the covariance of the two variables divided by the product of their standard deviations. It is denoted by $\rho$.
+\begin{equation*}
+\begin{split}
+    \rho &= \dfrac{Cov(X,Y)}{\sqrt{V(X)}\ \sqrt{V(Y}} \\
+        &= \dfrac{\mathbb{E}[(X - \mathbb{E}(X))(Y - \mathbb{E}(Y))]}{\sigma_x\  \sigma_y} \\
+        &= \dfrac{\mathbb{E}[XY] - \mathbb{E}[X]\  \mathbb{E}[Y]}{\sqrt{\mathbb{E}[X^2] - (\mathbb{E}[X])^2}\ \sqrt{\mathbb{E}[Y^2] - (\mathbb{E}[Y])^2}}
+\end{split}
+\end{equation*}
+\end{definition}
+
+\begin{note}[Remarks]
+\end{note}
+\begin{itemize}
+    \item Although $-\infty < Cov(X,Y) < \infty$, $-1 < \rho_{X,Y} < 1$. This is because the correlation coefficient is "normalised".
+    \item $\rho_{X,Y}$ is a measure of the degree of \textbf{linear} relationship between $X$ and $Y$.
+    \item If $X$ and $Y$ are independent, then $\rho_{X,Y} = 0$. On the other hand, the converse is not necessarily true.
+    \item The sign of $\rho$ indicates whether the correlation is positive or negative. For example, if $\rho > 0$ then it means that whenever $X > \mu_X$ it is more likely that $Y > \mu_Y$ also. Similarly, if $X < \mu_X$, it is more likely that $Y < \mu_Y$ when the correlation coefficient is positive. If the correlation coefficient is negative, it means that as $X$ increases, $Y$ tends to decrease, and vice versa. 
+    \item The magnitude of $\rho$ indicates how strongly the 2 random variables are linearly associated. The closer the magnitude is to 1, the greater the association/correlation. If $|\rho| = 1$, there is a perfect linear correlation between the two variables - when plotted, all the values of $(x,y)$ lie on a straight line. 
+\end{itemize}
