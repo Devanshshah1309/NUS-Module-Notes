@@ -1,5 +1,7 @@
 # Module Notes
-Place where I store all my notes for the modules I've taken in NUS. 
+Place where I store some of my notes for the modules I've taken in NUS. 
+
+Do star the repo if you find it useful!
 
 ## Notion Links for Some Notes
 In case you want to view the prettier version of the notes, feel free to use these links
